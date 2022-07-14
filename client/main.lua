@@ -10,16 +10,16 @@ end
 function Xperience:Init(data)
     self.CurrentXP      = tonumber(data.xp)
     self.CurrentRank    = tonumber(data.rank)
-
+    
     self:InitialiseUI()
-
+    
     RegisterCommand('+xperience', function()
         if self.Initialised then
             self:ToggleUI()
         end
     end)
     RegisterCommand('-xperience', function() end)
-    RegisterKeyMapping('+xperience', 'Show Rank Bar', 'keyboard', Config.UIKey)
+    --RegisterKeyMapping('+xperience', 'Show Rank Bar', 'keyboard', Config.UIKey)
 
     TriggerEvent('chat:addSuggestion', '/addXP', 'Give XP to player', {
         { name = "playerId",    help = 'The player\'s ID' },
@@ -39,7 +39,8 @@ function Xperience:Init(data)
     TriggerEvent('chat:addSuggestion', '/setRank', 'Set a player\'s current rank', {
         { name = "playerId",    help = 'The player\'s ID' },
         { name = "rank",        help = 'The rank value to set' }
-    })      
+    })  
+
 end
 
 
@@ -334,7 +335,7 @@ end
 
 RegisterNetEvent(event, function()
     Wait(1000) 
-    TriggerServerEvent('xperience:server:load') 
+    TriggerServerEvent('xperience:server:load')
 end)
 
 RegisterNetEvent('xperience:client:init', function(...) Xperience:Init(...) end)
@@ -367,3 +368,14 @@ exports('GetXPToNextRank', function(...) return Xperience:GetXPToNextRank(...) e
 exports('GetRank', function(...) return Xperience:GetRank(...) end)
 exports('GetMaxRank', function(...) return Xperience:GetMaxRank(...) end)
 exports('SetTheme', function(...) return Xperience:SetTheme(...) end)
+
+
+Citizen.CreateThread(function ()
+    while true do
+        Citizen.Wait(0)
+        if Xperience.Initialised then
+            Xperience:OpenUI()
+            break
+        end
+    end
+end)

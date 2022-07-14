@@ -17,7 +17,8 @@
 }
 
 .theme-hitman .xperience-segment .xperience-progress--bar {
-    background-color: rgba(255, 255, 255, 1);
+    /* background-color: rgba(255, 255, 255, 1); */
+    background-color: rgb(0, 255, 0);
 }
 
 .theme-hitman .xperience-segment .xperience-indicator--bar {
@@ -43,7 +44,7 @@
 }
 
 .theme-hitman .xperience-rank div {
-    top: 24px;
+    /*top: -24px;*/
     color: #fff;
     font-size: 28px;
     width: 100%;
@@ -54,12 +55,12 @@
 }
 
 .theme-hitman .xperience-rank:first-child div {
-    left: 38px;
+    left: 10px; /*38*/
     justify-content: flex-start;
 }
 
 .theme-hitman .xperience-rank:last-child div {
-    right: 38px;
+    right: 10px; /*38*/
     justify-content: flex-end;
 }
 

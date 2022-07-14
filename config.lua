@@ -4,7 +4,7 @@ Config.Debug        = true     -- Prints debug info to the console
 
 Config.Timeout      = 5000      -- Sets the time in ms that the XP bar is displayed before fading out
 Config.UIKey        = 'z'       -- The key that toggles the UI - default is "z"
-Config.Theme        = 'native'  -- Set the default theme
+Config.Theme        = 'hitman'  -- Set the default theme
 
 Config.Themes = {
     native = {
@@ -13,7 +13,7 @@ Config.Themes = {
     },
 
     hitman = {
-        segments = 80,
+        segments = 1,
         width = 800
     },
     
@@ -24,6 +24,6 @@ Config.Themes = {
 }
 
 Config.UseQBCore    = false
-Config.UseESX       = false
+Config.UseESX       = true
 
-Config.ESXIdentifierColumn = 'identifier'
+Config.ESXIdentifierColumn = 'license' --identifier

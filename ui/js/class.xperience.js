@@ -278,7 +278,7 @@ class XperienceUI {
     
     open() {
         this.cfg.parent.classList.add("active");
-        window.clearTimeout(this.displayTimer);
+        //window.clearTimeout(this.displayTimer);
     }
     
     close() {
@@ -292,9 +292,9 @@ class XperienceUI {
     timeout() {
         this.open();
 
-        this.displayTimer = window.setTimeout(() => {
-            this.close();
-        }, this.cfg.timeout);
+        // this.displayTimer = window.setTimeout(() => {
+        //     this.close();
+        // }, this.cfg.timeout);
     }
 
     
