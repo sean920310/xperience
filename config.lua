@@ -26,4 +26,4 @@ Config.Themes = {
 Config.UseQBCore    = false
 Config.UseESX       = true
 
-Config.ESXIdentifierColumn = 'license' --identifier
+Config.ESXIdentifierColumn = 'identifier' --identifier

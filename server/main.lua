@@ -64,7 +64,7 @@ function Xperience:Load(src)
                 if Config.ESXIdentifierColumn == 'identifier' then
                     statement = 'SELECT * FROM users WHERE identifier = @license'
                 end
-                
+
                 MySQL.Async.fetchAll(statement, { ['@license'] = license }, function(res)
                     if res[1] then
                         result = {}
@@ -209,14 +209,17 @@ function Xperience:GetPlayerXPToRank(playerId, rank)
 end
 
 function Xperience:GetPlayer(src)
-    for _, id in pairs(GetPlayerIdentifiers(src)) do
-        if string.sub(id, 1, string.len('license:')) == 'license:' then
-            if Config.UseESX and Config.ESXIdentifierColumn == 'license' then
-                return id
-            end
+    -- for _, id in pairs(GetPlayerIdentifiers(src)) do
+    --     if string.sub(id, 1, string.len('license:')) == 'license:' then
+    --         if Config.UseESX and Config.ESXIdentifierColumn == 'license' then
+    --             return id
+    --         end
 
-            return string.sub(id, 9, string.len(id))
-        end
+    --         return string.sub(id, 9, string.len(id))
+    --     end
+    -- end
+    if GetPlayerIdentifier(src) then
+        return GetPlayerIdentifier(src)
     end 
     
     return false
