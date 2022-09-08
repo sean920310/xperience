@@ -312,7 +312,10 @@ exports('GetPlayerXP', function(playerId) return Xperience:GetPlayerXP(playerId)
 exports('GetPlayerRank', function(playerId) return Xperience:GetPlayerRank(playerId) end)
 exports('GetPlayerXPToRank', function(playerId, rank) return Xperience:GetPlayerXPToRank(playerId, rank) end)
 exports('GetPlayerXPToNextRank', function(playerId) return Xperience:GetPlayerXPToNextRank(playerId) end)
-
+exports('restartXP', function() Xperience:Restart() end)
+exports('addXP', function(playerId, xp) Xperience:RunCommand(0, 'addXP', {playerId,xp}) end)
+exports('setXP', function(playerId, xp) Xperience:RunCommand(0, 'setXP', {playerId,xp}) end)
+exports('setRank', function(playerId, rank) Xperience:RunCommand(0, 'setRank', {playerId,rank}) end)
 
 ----------------------------------------------------
 --                   COMMANDS                     --
